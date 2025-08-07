@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Course Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__content">
+            <button class="menu-toggle" id="menuToggle">
+                <span class="menu-toggle__icon"></span>
+                <span class="menu-toggle__icon"></span>
+                <span class="menu-toggle__icon"></span>
+            </button>
+            <h1 class="header__title">SQL Course Notes</h1>
+            <div class="header__actions">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search course content..." class="search-input">
+                    <button class="search-clear" id="searchClear">×</button>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar__content">
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="#sample-database" class="nav-link active" data-section="sample-database">
+                        <span class="nav-number">DB</span>
+                        <span class="nav-title">Sample Database</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#01-intro" class="nav-link" data-section="01-intro">
+                        <span class="nav-number">1</span>
+                        <span class="nav-title">Introduction to SQL</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#02-create" class="nav-link" data-section="02-create">
+                        <span class="nav-number">2</span>
+                        <span class="nav-title">Creating Tables</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#03-insert" class="nav-link" data-section="03-insert">
+                        <span class="nav-number">3</span>
+                        <span class="nav-title">Inserting Data</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#04-select" class="nav-link" data-section="04-select">
+                        <span class="nav-number">4</span>
+                        <span class="nav-title">Selecting Data</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#05-update" class="nav-link" data-section="05-update">
+                        <span class="nav-number">5</span>
+                        <span class="nav-title">Updating Data</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#06-delete" class="nav-link" data-section="06-delete">
+                        <span class="nav-number">6</span>
+                        <span class="nav-title">Deleting Data</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#07-where" class="nav-link" data-section="07-where">
+                        <span class="nav-number">7</span>
+                        <span class="nav-title">Filtering Data</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#08-order" class="nav-link" data-section="08-order">
+                        <span class="nav-number">8</span>
+                        <span class="nav-title">Sorting Data</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#09-aggregate" class="nav-link" data-section="09-aggregate">
+                        <span class="nav-number">9</span>
+                        <span class="nav-title">Aggregate Functions</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#10-group" class="nav-link" data-section="10-group">
+                        <span class="nav-number">10</span>
+                        <span class="nav-title">Grouping & HAVING</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#11-joins" class="nav-link" data-section="11-joins">
+                        <span class="nav-number">11</span>
+                        <span class="nav-title">Joins</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#12-subqueries" class="nav-link" data-section="12-subqueries">
+                        <span class="nav-number">12</span>
+                        <span class="nav-title">Subqueries</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#13-constraints" class="nav-link" data-section="13-constraints">
+                        <span class="nav-number">13</span>
+                        <span class="nav-title">Constraints</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#14-views" class="nav-link" data-section="14-views">
+                        <span class="nav-number">14</span>
+                        <span class="nav-title">Views</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#15-indexes" class="nav-link" data-section="15-indexes">
+                        <span class="nav-number">15</span>
+                        <span class="nav-title">Indexes</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#16-transactions" class="nav-link" data-section="16-transactions">
+                        <span class="nav-number">16</span>
+                        <span class="nav-title">Transactions</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#17-ctes" class="nav-link" data-section="17-ctes">
+                        <span class="nav-number">17</span>
+                        <span class="nav-title">Common Table Expressions</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#18-window" class="nav-link" data-section="18-window">
+                        <span class="nav-number">18</span>
+                        <span class="nav-title">Window Functions</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <div class="content-wrapper">
+            <!-- Sample Database Section -->
+            <section id="sample-database" class="content-section">
+                <h1>Sample Database</h1>
+                <div class="section-content">
+                    <p>Throughout this course, we'll use a Student Management database system to demonstrate SQL concepts. The database consists of three main tables that model the relationship between students, courses, and enrollments.</p>
+                    
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code class="language-sql">-- Sample Database Schema
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Age INT,
+    Gender CHAR(1)
+);
+
+CREATE TABLE Courses (
+    CourseID INT PRIMARY KEY,
+    CourseName VARCHAR(100),
+    Credits INT
+);
+
+CREATE TABLE Enrollments (
+    EnrollmentID INT PRIMARY KEY,
+    StudentID INT,
+    CourseID INT,
+    EnrollmentDate DATE,
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+);</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dynamic content will be loaded here by JavaScript -->
+        </div>
+
+        <!-- Back to Top Button -->
+        <button class="back-to-top" id="backToTop">
+            <span>↑</span>
+        </button>
+    </main>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay" id="overlay"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
